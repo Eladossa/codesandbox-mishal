@@ -24,7 +24,6 @@ class SignUp extends Component {
     return (
       <div className='signUp-div'>
         <Header />
-        <Router history={history}>
           <div className='form-div'>
             <Redirect to='/signup/mobile' />
             <Switch>
@@ -40,7 +39,6 @@ class SignUp extends Component {
               </Route>
             </Switch>
           </div>
-        </Router>
       </div>
     );
   }

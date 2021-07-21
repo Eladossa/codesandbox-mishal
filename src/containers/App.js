@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { Redirect, Route, Switch, Router } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import SignUp from '../components/SignUp/SignUp';
 import CreatePass from '../components/SignUp/CreatePassword';
 import Home from '../components/Home/Home';
@@ -22,29 +22,50 @@ const useStateWithLocalStorage = () => {
   return [userSignedUp, setIfSignUp];
 };
 
-const App = () => {
+export const booleanContext = createContext();
 
+const App = () => {
+  //const [userSignedUp, setIfSignUp] = useState(false);
   const [userID, setUserID] = useState('');
   const [userSignedUp, setIfSignUp] = useStateWithLocalStorage();
 
-
   return (
     <div className='App-div'>
-  
-      <GuardedRoute exact path='/home' auth={userSignedUp}>
-        <Home
-          userIDNumber={userID}
-          setIfSignUp={setIfSignUp}
-        />
+      <GuardedRoute path='/home' auth={userSignedUp}>
+        <Home userIDNumber={userID} setIfSignUp={setIfSignUp} />
       </GuardedRoute>
       <Switch>
-        <Route exact path='/signup'>
+        <Route path='/signup'>
           <SignUp setUserNumber={setUserID} setIfSignUp={setIfSignUp} />
         </Route>
-    
       </Switch>
     </div>
   );
 };
 
 export default App;
+
+{
+  /* <booleanContext.Provider value={userID}>
+<CreatePass />
+</booleanContext.Provider> */
+}
+
+{
+  /* {userSignedUp ? <Redirect to='/home' /> : <Redirect to='/signup/mobile' />} */
+}
+{
+  /* <GuardedRoute
+        exact
+        path='/home'
+        component={Home}
+        auth={userSignedUp}
+        userIDNumber={userID}
+        setIfSignUp={setIfSignUp}
+      /> */
+}
+{
+  /* <Route exact path='/'>
+          <Link to='/signup'>login</Link>
+        </Route> */
+}
