@@ -36,7 +36,6 @@ const App = () => {
   return (
     // <booleanContext.Provider value={setIfSignUp}>
     <div className='App-div'>
-      {userSignedUp ? <Redirect to='/home' /> : <Redirect to='/signup' />}
       {/* <GuardedRoute
         exact
         path='/home'
