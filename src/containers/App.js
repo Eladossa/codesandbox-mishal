@@ -34,38 +34,21 @@ const App = () => {
   // const booleanContext = createContext(setIfSignUp);
 
   return (
-    // <booleanContext.Provider value={setIfSignUp}>
     <div className='App-div'>
-      {/* <GuardedRoute
-        exact
-        path='/home'
-        component={Home}
-        auth={userSignedUp}
-        userIDNumber={userID}
-        setIfSignUp={setIfSignUp}
-      /> */}
+  
       <GuardedRoute exact path='/home' auth={userSignedUp}>
         <Home
           userIDNumber={userID}
           setIfSignUp={setIfSignUp}
-          //auth={userSignedUp}
         />
       </GuardedRoute>
       <Switch>
         <Route exact path='/signup'>
           <SignUp setUserNumber={setUserID} setIfSignUp={setIfSignUp} />
         </Route>
-        {/* <Route path='/home'>
-          <Home
-            userIDNumber={userID}
-            setIfSignUp={setIfSignUp}
-            auth={userSignedUp}
-          />
-        </Route> */}
-        {/* <CreatePass /> */}
+    
       </Switch>
     </div>
-    // </booleanContext.Provider>
   );
 };
 

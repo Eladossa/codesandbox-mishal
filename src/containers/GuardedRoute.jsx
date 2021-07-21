@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 function GuardedRoute({ children, auth, ...rest }) {
   return (
     <Route
-      {...rest}
+      
       render={() => {
         return auth === true ? children : <Redirect to='/signup' />;
       }}

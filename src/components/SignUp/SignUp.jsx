@@ -19,27 +19,7 @@ class SignUp extends Component {
     };
   }
 
-  // signUpProcess() {
-  //   console.log('signUpProcess');
-  //   switch (this.state.stage) {
-  //     case 2:
-  //       return (
-  //         <IdentNumber
-  //           setPersonalID={this.props.setUserNumber}
-  //           afterSubmit={() => this.setState({ stage: 3 })}
-  //         />
-  //       );
-  //       break;
-  //     case 3:
-  //       return <CreatePass afterSubmit={() => this.setState({ stage: 4 })} />;
-  //     case 4:
-  //       return this.props.homePage();
-  //       break;
-  //     default:
-  //       return <MobileNum afterSubmit={() => this.setState({ stage: 2 })} />;
-  //   }
-  // }
-
+ 
   render() {
     return (
       <div className='signUp-div'>
@@ -48,11 +28,11 @@ class SignUp extends Component {
           <div className='form-div'>
             <Redirect to='/signup/mobile' />
             <Switch>
-              <Route exact path={'/signup/mobile'} component={MobileNum} />
-              <Route exact path={'/signup/idnumber'}>
+              <Route  path={'/signup/mobile'} component={MobileNum} />
+              <Route  path={'/signup/idnumber'}>
                 <IdentNumber setPersonalID={this.props.setUserNumber} />
               </Route>
-              <Route exact path={'/signup/password'}>
+              <Route  path={'/signup/password'}>
                 <CreatePass
                   setIfSignUp={this.props.setIfSignUp}
                   pathsArray={pathArray}
