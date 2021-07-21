@@ -23,15 +23,10 @@ const useStateWithLocalStorage = () => {
 };
 
 const App = () => {
-  // const [userSignedUp, setIfSignUp] = useState(
-  //   JSON.parse(localStorage.getItem('userID')) || true
-  // );
 
-  //const [userSignedUp, setIfSignUp] = useState(false);
   const [userID, setUserID] = useState('');
   const [userSignedUp, setIfSignUp] = useStateWithLocalStorage();
 
-  // const booleanContext = createContext(setIfSignUp);
 
   return (
     <div className='App-div'>
